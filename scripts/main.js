@@ -1,71 +1,58 @@
-import handleThemeToggle from "./handleThemeToggle";
+// import handleThemeToggle from "./handleThemeToggle";
 
 // DOM Selection
-const inputEl = document.querySelector("[data-input-string]");
-const copyBtnEl = document.querySelector("[data-btn-copy]");
-const chipEl = document.querySelector(".chip");
-const toggleEl = document.querySelector("[data-toggle-theme]");
-const themeImgEl = document.querySelector(".theme-img");
+const inputEl = document.querySelector("input");
+const buttonEl = document.querySelector("button");
+const copied = document.querySelector(".chip");
+const copyEl = document.querySelector(".copyToClipboard");
 
-// app variables
-let theme = "light";
-
-function reverse(string) {
-  // convert to array
-  const strArr = string.split("");
-  // reverse the array
-  strArr.reverse();
-  // convert reverse array back to string
-  const revStr = strArr.join("");
-
-  return revStr;
+function reverseString() {
+  let inputVal = inputEl.value;
+  let mirrorText = inputVal.split("").reverse().join("");
+  inputEl.value = mirrorText;
 }
 
-async function handleReverse() {
-  // get current input
-  const currInput = inputEl.value;
+function copy() {
+  const inputVal = inputEl.value.trim(); 
+  const feedbackMessage = document.querySelector('.feedback-message');
+  const errorMessage = document.querySelector('.error-message');
 
-  // checking for blank
-  if (currInput === "") return;
+  feedbackMessage.style.display = 'none';
+  errorMessage.style.display = 'none';
 
-  //   caluculate reverse
-  const reverseInput = reverse(currInput);
-  // change the input to reverse
-  inputEl.value = reverseInput;
-
-  // set clipboard to reverse && show chip
-  try {
-    await navigator.clipboard.writeText(reverseInput);
-    chipEl.classList.add("animate");
+  if (inputVal === "") {
+    errorMessage.textContent = "Error: The input is empty! Please enter some text to copy.";
+    errorMessage.style.display = 'block';
     setTimeout(() => {
-      chipEl.classList.remove("animate");
+      errorMessage.style.display = 'none';
     }, 2000);
-  } catch (err) {
-    console.error("Exception occured:", err);
+    return;
   }
+
+  inputEl.select();
+  navigator.clipboard.writeText(inputVal).then(() => {
+    feedbackMessage.textContent = "Copied!";
+    feedbackMessage.style.display = 'block';
+    setTimeout(() => {
+      feedbackMessage.style.display = 'none';
+    }, 2000);
+    inputEl.value = '';
+  }).catch(err => {
+    console.error('Failed to copy: ', err);
+  });
 }
 
-// listening on btn click
-copyBtnEl.addEventListener("click", handleReverse);
 
-// listening on keyboard enter
 inputEl.addEventListener("keypress", (e) => {
-  if (e.keyCode === 13) handleReverse();
+  if (e.key === "Enter") {
+    reverseString();
+  }
 });
 
-// toggle dark/light mode
-toggleEl.addEventListener("click", (e) => {
-  const themeData = {
-    dark: "public/img/partly-cloudy-day.png",
-    light: "public/img/partly-cloudy-night.png",
-  };
-
-  // calculate next theme
-  theme = theme === "light" ? "dark" : "light";
-  themeImgEl.src = themeData[theme];
-
-  console.log("theme changed: ", theme);
-  handleThemeToggle();
+buttonEl.addEventListener("click", () => {
+  reverseString();
 });
 
-console.log("site loaded, theme: ", theme);
+copyEl.addEventListener("click", () => {
+  copy();
+});

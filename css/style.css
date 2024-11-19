@@ -1,7 +1,5 @@
-/* @import url("fonts.css"); */
 @import url("utils.css");
 @import url("variables.css");
-
 
 /*reset code*/
 * {
@@ -62,7 +60,7 @@ input {
 }
 
 .rev-btn {
-  background-image: url("./assets/unoreverse.png");
+  background-image: url("/assets/rev.png");
   background-size: 30px;
   background-repeat: no-repeat;
   background-position: center;
@@ -73,7 +71,7 @@ input {
   border: 1px solid black;
   outline: none;
   &:hover {
-    background-image: url("./assets/unoreverse.png");
+    background-image: url("/assets/rev.png");
     background-size: 30px;
     background-repeat: no-repeat;
     background-position: center;
