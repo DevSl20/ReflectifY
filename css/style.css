@@ -1,0 +1,168 @@
+/* @import url("fonts.css"); */
+@import url("utils.css");
+@import url("variables.css");
+
+
+/*reset code*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  font-weight: lighter;
+
+  border: 10px solid #33333312;
+
+  /*layout styles*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* heading */
+.heading {
+  font-size: 3rem;
+}
+
+.heading::after {
+  content: "";
+  background-image: url("/assets/uno-reverse-yellow.png");
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+}
+
+/* description */
+.description {
+  text-align: center;
+  font-weight: bold;
+}
+
+input {
+  height: 50px;
+  width: 400px;
+  margin-right: 70px;
+  padding: 30px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  border: none;
+  box-shadow: 5px 5px 0px #000;
+  outline: none;
+}
+
+.rev-btn {
+  background-image: url("./assets/unoreverse.png");
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 57px;
+  width: 57px;
+  border-radius: 0.5rem;
+  transition: 0.5s ease;
+  border: 1px solid black;
+  outline: none;
+  &:hover {
+    background-image: url("./assets/unoreverse.png");
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: yellow;
+    transform: scale(1.1);
+  }
+}
+
+.copyToClipboard {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1rem 0.5rem;
+  margin-left: 3rem;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+  transition: transform 0.4s ease;
+  &:hover {
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: yellow;
+    transform: scale(1.1);
+  }
+  &:active {
+    background-color: rgb(225, 255, 76);
+  }
+}
+
+.feedback-message {
+  display: none;
+  position: absolute;
+  top: 35rem;
+  bottom: 0;
+  left: 45rem;
+  right: 0;
+}
+
+.error-message {
+  display: none;
+  position: absolute;
+  top: 40rem;
+  bottom: 0;
+  left: 38rem;
+  right: 0;
+}
+
+/* fade animation for chip */
+@keyframes fade {
+  0% {
+    visibility: visible;
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(-5px);
+    visibility: hidden;
+  }
+}
+
+/* responsive: Medium */
+@media screen and (max-width: 768px) {
+  .heading {
+    font-size: 2rem;
+  }
+
+  [data-input-string] {
+    font-size: 1.5rem;
+    outline: 1px dashed var(--tint);
+  }
+}
+
+/* responsive: Small */
+@media screen and (max-width: 640px) {
+  body {
+    padding: 2rem;
+    gap: 4rem;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .heading::after {
+    display: none;
+  }
+
+  [data-input-string] {
+    font-size: 1rem;
+  }
+}
