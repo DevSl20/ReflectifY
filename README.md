@@ -1,1 +1,3 @@
-# ReflectifY_V2
+# ReflectifY
+## Where every strings finds it's Reflection..
+This app reverses whatever passed to the input field, Can be used to create Passwords.
