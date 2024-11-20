@@ -11,7 +11,9 @@
 body {
   min-height: 100vh;
   min-width: 100vw;
+  font-family: monospace;
   font-weight: lighter;
+  background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 
   border: 10px solid #33333312;
 
@@ -21,6 +23,13 @@ body {
   align-items: center;
   flex-direction: column;
   gap: 3rem;
+}
+span {
+  color: goldenrod;
+}
+
+h1 {
+  color: black;
 }
 
 /* heading */
@@ -39,12 +48,14 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   z-index: -1;
+  color: white;
 }
 
 /* description */
 .description {
   text-align: center;
   font-weight: bold;
+  color: black;
 }
 
 input {
