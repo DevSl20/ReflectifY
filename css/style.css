@@ -24,6 +24,7 @@ body {
   flex-direction: column;
   gap: 3rem;
 }
+
 span {
   color: goldenrod;
 }
@@ -34,26 +35,29 @@ h1 {
 
 /* heading */
 .heading {
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 .heading::after {
   content: "";
   background-image: url("/assets/uno-reverse-yellow.png");
+  background-size: 8.5rem;
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  right: 36%;
+  bottom: 35%;
   background-repeat: no-repeat;
   background-position: center;
   z-index: -1;
   color: white;
 }
 
+
 /* description */
 .description {
   text-align: center;
+  font-size: 2rem;
   font-weight: bold;
   color: black;
 }
@@ -63,7 +67,7 @@ input {
   width: 400px;
   margin-right: 70px;
   padding: 30px;
-  border-radius: 5px;
+  border-radius: 15px;
   font-size: 1.5rem;
   border: none;
   box-shadow: 5px 5px 0px #000;
@@ -81,6 +85,7 @@ input {
   transition: 0.5s ease;
   border: 1px solid black;
   outline: none;
+
   &:hover {
     background-image: url("/assets/rev.png");
     background-size: 30px;
@@ -99,6 +104,7 @@ input {
   border-radius: 0.5rem;
   border: 1px solid black;
   transition: transform 0.4s ease;
+
   &:hover {
     background-size: 30px;
     background-repeat: no-repeat;
@@ -106,12 +112,14 @@ input {
     background-color: yellow;
     transform: scale(1.1);
   }
+
   &:active {
     background-color: rgb(225, 255, 76);
   }
 }
 
 .feedback-message {
+  font-size: 1.5rem;
   display: none;
   position: absolute;
   top: 35rem;
@@ -121,11 +129,12 @@ input {
 }
 
 .error-message {
+  font-size: 1.5rem;
   display: none;
   position: absolute;
-  top: 40rem;
+  top: 35rem;
   bottom: 0;
-  left: 38rem;
+  left: 25%;
   right: 0;
 }
 
@@ -135,9 +144,11 @@ input {
     visibility: visible;
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-5px);
   }
+
   100% {
     transform: translateY(-5px);
     visibility: hidden;

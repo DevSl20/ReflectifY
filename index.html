@@ -1,34 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReflectifY</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="flex">
-    <h1 class="heading"> <span class="rev">ReflectifY</span> • Where every string finds its reflection!</h1>
-    <h2 class="description">Elegant tool that <span class="rev">ReflecT</span>/Reverse 
-        any text, number, or string can be used for <span class="rev">passwords</span>
+    <h1 class="heading"><span class="rev">ReflectifY</span></h1>
+    <h2 class="description"> • Where every string finds its <span class="rev">reflection!</span>best to create <span class="rev">passwords</span>
     </h2>
     <div>
-        <input 
-        type="text"
-        min="2"
-        max="100"
-        placeholder="Enter Search"
-        autofocus
-        data-input-string
-        />
+        <input type="text" min="2" max="100" placeholder="Enter Search" autofocus data-input-string />
         <button class="rev-btn" data-btn-copy></button>
         <button class="copyToClipboard">Copy</button>
-        <div class="feedback-message" style="display: none">Copied!</div>
+        <div class="feedback-message" style="display: none; color: darkgoldenrod;">Copied!</div>
+        <div class="error-message" style="display:none; color: darkgoldenrod;"></div>
     </div>
 
-    <span class="info" title="Change theme" data-toggle-theme
-      ><img src="/img/partly-cloudy-night.png" alt="" class="theme-img"
-    /></span>
-    
+    <span class="theme" title="Change theme" data-toggle-theme><img src="/img/partly-cloudy-night.png" alt=""
+            class="theme-img" /></span>
+
     <script src="scripts/main.js" type="module"></script>
 </body>
+
 </html>

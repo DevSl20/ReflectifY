@@ -6,6 +6,7 @@ const buttonEl = document.querySelector("button");
 const copied = document.querySelector(".chip");
 const copyEl = document.querySelector(".copyToClipboard");
 
+
 function reverseString() {
   let inputVal = inputEl.value;
   let mirrorText = inputVal.split("").reverse().join("");
@@ -13,7 +14,7 @@ function reverseString() {
 }
 
 function copy() {
-  const inputVal = inputEl.value.trim(); 
+  const inputVal = inputEl.value.trim();
   const feedbackMessage = document.querySelector('.feedback-message');
   const errorMessage = document.querySelector('.error-message');
 
@@ -41,7 +42,6 @@ function copy() {
     console.error('Failed to copy: ', err);
   });
 }
-
 
 inputEl.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
